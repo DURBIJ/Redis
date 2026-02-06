@@ -21,33 +21,33 @@ public class KeyValueService {
 //        this.repository = repository;
 //    }
 
-    public void save(String key, String value, long expiryTime) {
-        KeyValueEntity entity = new KeyValueEntity();
-        entity.setKey(key);
-        entity.setValue(value);
-        entity.setExpiryTime(expiryTime);
+    // public void save(String key, String value, long expiryTime) {
+    //     KeyValueEntity entity = new KeyValueEntity();
+    //     entity.setKey(key);
+    //     entity.setValue(value);
+    //     entity.setExpiryTime(expiryTime);
 
-        repository.save(entity);
-    }
-    public void getAllKeyValueEntity(){
-        List<KeyValueEntity> lst=repository.findAll();
+    //     repository.save(entity);
+    // }
+    // public void getAllKeyValueEntity(){
+    //     List<KeyValueEntity> lst=repository.findAll();
 
-        for (KeyValueEntity e : lst) {
-            System.out.println(
-                    "Key = " + e.getKey() +
-                            ", Value = " + e.getValue() +
-                            ", Expiry = " + e.getExpiryTime()
-            );
-        }
-    }
+    //     for (KeyValueEntity e : lst) {
+    //         System.out.println(
+    //                 "Key = " + e.getKey() +
+    //                         ", Value = " + e.getValue() +
+    //                         ", Expiry = " + e.getExpiryTime()
+    //         );
+    //     }
+    // }
 
     public void set(String key, String value, long ttl) {
         store.set(key, value, ttl);
-        save(key,value,ttl);
+        // save(key,value,ttl);
     }
 
     public String get(String key) {
-        getAllKeyValueEntity();
+        // getAllKeyValueEntity();
         return store.get(key);
     }
 
